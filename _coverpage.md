@@ -1,14 +1,19 @@
 <!-- _coverpage.md -->
 
-[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-qZ6dXl8H-1637505148577)(_media/icon.svg)]
 
-# docsify <small>3.5</small>
+<div align="center" style="border-radius:1000%; overflow:hidden;">
+<img src=/image/qmx_head.png width=30% />
+</div>
 
-> 一个神奇的文档网站生成器。
 
-- 简单、轻便 (压缩后 ~21kB)
-- 无需生成 html 文件
-- 众多主题
+# 启明星工作室学习路线
 
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#docsify)
+# 新生/预备成员
+
+> 自主学习、月考核学习
+
+- 启明星智能组学习路线
+- 启明星开发组学习路线
+
+[文档仓库](https://github.com/tastynoob/QMXDOC)
+[Get Started](http://localhost:3000/#/md/start)

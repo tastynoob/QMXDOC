@@ -8,9 +8,10 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- 主题 -->
-  <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css">-->
-  <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/pure.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css"> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/pure.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
 
 </head>
 
@@ -19,7 +20,7 @@
   <script>
     window.$docsify = {
       name: 'QMX工作室学习路线',//侧边栏标题
-      repo: 'https://github.com/ZhiliangMa/easyio-lib-for-esp32',//右上角仓库链接
+      repo: 'https://github.com/tastynoob/QMXDOC',//右上角仓库链接
       loadSidebar: true,//允许加载侧边栏
       loadNavbar: true,//允许加载导航栏
       coverpage: true,//允许加载封面页
@@ -30,6 +31,47 @@
         noData: '找不到结果',
         depth: 3,
       },
+      pagination: {
+        previousText: "上一篇",
+        nextText: "下一篇",
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      plugins: [//在线编辑
+        function (hook, vm) {
+          hook.beforeEach(function (content) { // content为md文件本身的内容
+            const en = vm.route.file.indexOf("README_EN") > -1;
+            if (/githubusercontent.com/.test(vm.route.file)) {
+              url = vm.route.file
+                .replace("raw.githubusercontent.com", "github.com")
+                .replace("//main/", "/blob/main");
+            } else {
+              url =
+                "https://github.com/tastynoob/QMXDOC/md/" +
+                vm.route.file;
+            }
+            const github = `[GitHub](${url})`;
+            // 全局嵌入GitHub编辑功能
+            const editHtml = en
+              ? `:memo: Edit on ${github}\n`
+              : `:memo: 在 ${github}编辑\n`;
+            if (vm.route.path == "/") {
+              return editHtml + content;
+            }
+            // 全局嵌入代码
+            // 拼接的内容即为页面最终渲染的效果
+            return editHtml + content + `<br>`;
+          });
+          hook.afterEach(function (html) { // 页脚
+            const footer = [
+              "<footer style='text-align: center;'>",
+              '<span>Copyright © 2021-2024 <a href="https://github.com/tastynoob/QMXDOC" target="_blank">QMX工作室</a>. All rights reserved.',
+              "</footer>",
+            ].join("");
+            return html + footer;
+          });
+        },
+      ],
     }
   </script>
   <!-- Docsify v4 -->
@@ -39,12 +81,25 @@
   <!-- 一键复制插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
   <!-- 代码高亮 -->
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-shell-session.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-http.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-cpp.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-sql.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-properties.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-xml-doc.min.js"></script>
+
+
+  <!--上一篇/下一篇-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!--图片缩放-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
 
 </body>
 
