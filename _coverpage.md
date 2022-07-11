@@ -16,4 +16,4 @@
 - 启明星开发组学习路线
 
 [文档仓库](https://github.com/tastynoob/QMXDOC)
-[Get Started](https://tastynoob.github.io/QMXDOC/#/md/start)
+[Get Started](https://tastynoob.github.io/QMXDOC/#/md/Introduction/start)
