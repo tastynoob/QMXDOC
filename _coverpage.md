@@ -2,7 +2,7 @@
 
 
 <div align="center" style="border-radius:1000%; overflow:hidden;">
-<img src=/image/qmx_head.png width=30% />
+<img src=image/qmx_head.png width=30% />
 </div>
 
 
