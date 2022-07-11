@@ -60,7 +60,7 @@
             }
             // 全局嵌入代码
             // 拼接的内容即为页面最终渲染的效果
-            return editHtml + content + `<br>`;
+            return editHtml + content;
           });
           hook.afterEach(function (html) { // 页脚
             const footer = [
